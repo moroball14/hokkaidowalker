@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+
+  layout 'basic', only: :new
+
   def index
   end
 
