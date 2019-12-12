@@ -13,6 +13,26 @@
         <%= f.text_field :name %>
       </div>
 
+      <%= f.fields_for :addresses do |i| %>
+        <div class="postcode">
+          <%= i.label :postcode, "郵便番号 (必須)" %>
+          <%= i.text_field :postcode, size: "10", maxlength: "8", onKeyUp: "AjaxZip3.zip2addr(this,'','addr11','addr11');", placeholder: "ハイフンなし7桁" %>  <%# name属性のzip11は無くてもいい %>
+        </div>
+
+        <div class="place">
+          <div class="place__address">
+            <%= i.label :place, "住所" %>
+            <%= i.text_field :place, name: "addr11", size: "60", class: "false-place", placeholder: "郵便番号から自動入力されます" %>
+            <%= i.text_field :place, class: "true-place", type: "hidden" %>
+          </div>
+          <div class="place__building">
+            <%= i.label :place_building, "建物名等" %>
+            <%= i.text_field :place_building, placeholder: "あったら助かります" %>
+          </div>
+        </div>
+
+      <% end %>
+
       <div class="url">
         <%= f.label :url, "イベントURL" %>
         <%= f.text_field :url, class:'form-control', placeholder: "例: https://hokkaido.com" %>
