@@ -5,6 +5,8 @@ $f-pink-color: #ee6e73;
   text-align: center;
   background-color: #fff;
   box-shadow: 0 2px 4px #999999;
+  position: relative;
+  z-index: 1;
 }
 
 .title {
