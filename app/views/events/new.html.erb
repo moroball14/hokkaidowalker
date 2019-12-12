@@ -1,0 +1,48 @@
+<div class="main-wrapper">
+
+  <h3>イベント登録する</h3>
+
+  <div class="form-wrapper">
+
+    <%= form_for @event do |f| %>
+
+      <%= render 'layouts/error_messages', model: f.object %>
+
+      <div class="event_name">
+        <%= f.label :name, "イベント名 (必須)" %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="url">
+        <%= f.label :url, "イベントURL" %>
+        <%= f.text_field :url, class:'form-control', placeholder: "例: https://hokkaido.com" %>
+      </div>
+
+      <div class="start_on">
+        <div class="start_on__label">
+          <%= f.label :start, "開始日" %>
+        </div>
+        <%= f.date_field :start, min: Date.today, value: Time.now.strftime("%Y-%m-%d"), class: 'form-control start_on__form' %>
+      </div>
+
+      <div class="end_on">
+        <div class="end_on__label">
+          <%= f.label :end, "終了日" %>
+        </div>
+        <%= f.date_field :end, min: Date.today, value: Time.now.strftime("%Y-%m-%d"), class: 'form-control end_on__form' %>
+      </div>
+
+      <div class="category clearfix">
+        <div class="category__label">
+          <%= f.label :category_id, "カテゴリー"%>
+        </div>
+        <%= f.select :category_id, [["グルメ",1], ["お祭り",2], ["花火",3], ["よさこい",4], ["その他",5]] %>
+      </div>
+
+      <%= f.submit '登録', class:'btn btn-primary add-btn' %>
+    
+    <% end %>
+
+  </div>
+
+</div>
