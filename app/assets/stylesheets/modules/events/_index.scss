@@ -1,0 +1,24 @@
+$f-pink-color: #ee6e73;
+
+.maps {
+  height: calc(100vh - 120px);
+  width: 100vw;
+  position: relative;
+  background-color: yellow;
+}
+
+.new-event-path {
+  color: #fff;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  bottom: 85px;
+  right: 85px;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 60px;
+  text-decoration: none;
+  text-align: center;
+  background-color: $f-pink-color;
+  border-radius: 35px;
+}
