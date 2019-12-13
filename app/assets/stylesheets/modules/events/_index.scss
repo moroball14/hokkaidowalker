@@ -1,9 +1,9 @@
 $f-pink-color: #ee6e73;
 
-.maps {
+#map {
   height: calc(100vh - 120px);
   width: 100vw;
-  position: relative;
+  position: static;
 }
 
 .new-event-path {
