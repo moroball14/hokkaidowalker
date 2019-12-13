@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('#myfile').change(function(e){
     //ファイルオブジェクトを取得する
     var file = e.target.files[0];
