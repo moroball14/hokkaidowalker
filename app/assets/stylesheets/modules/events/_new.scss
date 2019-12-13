@@ -1,0 +1,22 @@
+@mixin wrapper(){
+  width: 960px;
+  height: calc(100vh - 140px);
+  margin: 10px auto;
+  position: relative;
+}
+
+.main-wrapper {
+  @include wrapper();
+  padding: 20px ;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ee6e73;
+  margin-bottom: 20px;
+}
+
+.form-wrapper {
+  width: 100%;
+}

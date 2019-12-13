@@ -1,5 +1,17 @@
 <div class="maps">
-  <div id='map'>地図が入ります</div>
+  <div id='map'></div>
 </div>
 
 <%= link_to "+", new_event_path, class: "new-event-path" %>
+
+<script type="text/javascript">
+  // var currentInfoWindow = null;
+  function initMap() {
+    var test = {lat: 43.068661, lng: 141.350755};  // 変数testに札幌駅の緯度経度を代入
+    var map = new google.maps.Map(document.getElementById('map'), { // id=mapに地図を埋め込む
+      zoom: 13,  // zoomを15
+      center: test  // 地図の中心を変数testの緯度経度に指定
+    });
+  }
+  
+</script>
