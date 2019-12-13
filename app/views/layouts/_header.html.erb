@@ -1,3 +1,9 @@
 <div class="header">
   <%= link_to "北海道Walker", root_path, class: "brand-logo title" %>
+  <% if user_signed_in? %>
+    <%= link_to "ログアウト", destroy_user_session_path %>
+  <% else %>
+    <%= link_to "ログイン", new_user_session_path %>
+    <%= link_to "新規登録", new_user_registration_path %>
+  <% end %>
 </div>
