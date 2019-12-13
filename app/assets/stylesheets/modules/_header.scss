@@ -2,6 +2,7 @@ $f-pink-color: #ee6e73;
 
 .header {
   height: 60px;
+  line-height: 60px;
   text-align: center;
   background-color: #fff;
   box-shadow: 0 2px 4px #999999;
@@ -17,4 +18,8 @@ $f-pink-color: #ee6e73;
   text-shadow: 3px 3px 0 $f-pink-color;
   -webkit-text-stroke: 2px #888;
   text-decoration: none;
+}
+
+.avatar-image {
+  border-radius: 30px;
 }
