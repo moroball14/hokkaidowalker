@@ -13,7 +13,7 @@
         <%= f.text_field :name %>
       </div>
 
-      <%= f.fields_for :addresses, @event.address do |i| %>
+      <%= f.fields_for :address, @event.address || Address.new do |i| %>
         <div class="postcode">
           <%= i.label :postcode, "郵便番号 (必須)" %>
           <%= i.text_field :postcode, size: "10", maxlength: "8", onKeyUp: "AjaxZip3.zip2addr(this,'','addr11','addr11');", placeholder: "ハイフンなし7桁" %>  <%# name属性のzip11は無くてもいい %>
