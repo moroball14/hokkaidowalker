@@ -12,7 +12,15 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    binding.pry
+    # if @event.geocode
+    #   if @event.valid?
+    #     @event.save
+    #   else
+    #     # 緯度でバリデーションかけて「北海道ではありません」とエラーメッセージ を返す
+    #   end
+    # else
+    #   # 「位置情報を取得できませんでした」とエラーメッセージを返す
+    # end
     @event.save
     # @address = Address.new(params[:event][:addresses]).merge(event_id: @event.id)
     # @address.save
