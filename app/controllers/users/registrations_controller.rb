@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def detail
-    @user = User.find_by(id: params[:id])
+    @user = User.find(current_user.id)
   end
   
   # protected
