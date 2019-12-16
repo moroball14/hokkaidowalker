@@ -15,18 +15,17 @@ class EventsController < ApplicationController
     @address.geocode
     unless @address[:latitude] == nil
     # binding.pry
-    # #   if @address.valid?
-      new_params = event_params
-      new_params[:address_attributes].merge!(latitude: @address.latitude, longitude: @address.longitude)
-      @event = Event.new(new_params)
-      @event.save
-    # #   else
-    # #     # 緯度でバリデーションかけて「北海道ではありません」とエラーメッセージ を返す
-    # #   end
-      redirect_to root_path
+      if @address.valid?
+        new_params = event_params
+        new_params[:address_attributes].merge!(latitude: @address.latitude, longitude: @address.longitude)
+        @event = Event.new(new_params)
+        @event.save
+        redirect_to root_path
+      else
+        redirect_to new_event_path, alert: '北海道ではありません'# 緯度でバリデーションかけて「北海道ではありません」とエラーメッセージ を返す
+      end
     else
       redirect_to new_event_path, alert: '位置情報を取得できませんでした'
-       # 「位置情報を取得できませんでした」とエラーメッセージを返す
     end
   end
 
