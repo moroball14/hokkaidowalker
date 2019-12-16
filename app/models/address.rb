@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
   belongs_to :event
 
-  validates :latitude, :numericality => { :greater_than => 140.1439347 }
+  validates :latitude, :numericality => { :greater_than => 41.3291265 }
 
   def geocode
     address = (place + place_building)
