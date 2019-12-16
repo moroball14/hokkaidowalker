@@ -13,7 +13,8 @@ class EventsController < ApplicationController
   def create
     @address = Address.new(event_params[:address_attributes])
     @address.geocode
-    event_params[:address_attributes].merge!(latitude: @address.latitude, longitude: @address.longitude)
+    event_params[:address_attributes].merge!(latitude: @address.latitude, longitude: @address.longitude) # event_paramsを上書きして緯度経度を含んだ状態にしたい。けどmergeが上手くいかない。
+    # event_params[:address_attributes].geocode
     @event = Event.new(event_params)
     binding.pry
     # if @address.geocode
