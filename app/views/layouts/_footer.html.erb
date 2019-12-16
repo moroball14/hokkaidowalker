@@ -17,9 +17,16 @@
       </div>
     </li>
     <li class="footer-list">
-      <%= link_to "/user/#{current_user.id}", class: "my-page" do %>
-        マイページ
-        <%= icon 'fas', 'user', class: "mypage" %>
+      <% if user_signed_in? %>
+        <%= link_to "/user/#{current_user.id}", class: "my-page" do %>
+          マイページ
+          <%= icon 'fas', 'user', class: "mypage" %>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path, class: "my-page" do %>
+          マイページ
+          <%= icon 'fas', 'user', class: "mypage" %>
+        <% end %>
       <% end %>
     </li>
   </ul>
