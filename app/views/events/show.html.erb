@@ -1,2 +1,49 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="main-wrapper">
+  <h3>イベント詳細</h3>
+
+  <div class="detail-list">
+    <div class="detail-list__head">イベント名</div>
+    <div class="detail-list__body"><%= @event.name %><%= link_to "イメージを見る", "https://www.google.co.jp/search?q=#{@event.name}&sxsrf=ACYBGNRpt-p1nXhkCIn-YzO4GqmNOenIGA:1572737338526&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjx3IyT18zlAhXC7WEKHWriBaIQ_AUIFCgD&biw=1440&bih=789", target: :_blank, class: "link_to_image" %></div>
+  </div>
+
+  <div class="detail-list">
+    <div class="detail-list__head">場所</div>
+    <div class="detail-list__body"><%= @event.address.place %> <%= @event.address.place_building %></div>
+  </div>
+
+  <div class="detail-list">
+    <div class="detail-list__head">日時</div>
+    <div class="detail-list__body"><%= @event.start.strftime("%Y年%-m月%-d日") %>  〜  <%= @event.end.strftime("%Y年%-m月%-d日") %></div>
+  </div>
+
+  <div class="detail-list">
+    <div class="detail-list__head">url</div>
+    <div class="detail-list__body"><%= link_to "#{ @event.url }".truncate(60) , "#{ @event.url }", target: :_blank %></div>
+  </div>
+
+  <div class="detail-list">
+    <div class="detail-list__head">地図</div>
+    <div class="detail-list__body detail-list__map"><div id='map'></div></div>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+  function initMap() {
+    var lat = <%= @event.address.latitude %>
+    var lng = <%= @event.address.longitude %>
+    var test = {lat: lat, lng: lng};  // 変数testに札幌駅の緯度経度を代入
+    var map = new google.maps.Map(document.getElementById('map'), { // id=mapに地図を埋め込む
+      zoom: 13,  // zoomを15
+      center: test  // 地図の中心を変数testの緯度経度に指定
+    });
+      var place = {lat: lat, lng: lng}
+      var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
+
+      var marker = new google.maps.Marker({  // マーカーの追加
+        position:place,  // マーカーを立てる位置を指定
+        map: map,  // マーカーを立てる地図を指定
+      });
+  }
+</script>
