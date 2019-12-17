@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   layout 'basic', only: :new
 
   def index
+    @events = Event.all
   end
 
   def new

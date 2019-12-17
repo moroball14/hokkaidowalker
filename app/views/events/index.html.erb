@@ -5,13 +5,42 @@
 <%= link_to "+", new_event_path, class: "new-event-path" %>
 
 <script type="text/javascript">
-  // var currentInfoWindow = null;
+  var currentInfoWindow = null;
   function initMap() {
     var test = {lat: 43.068661, lng: 141.350755};  // 変数testに札幌駅の緯度経度を代入
     var map = new google.maps.Map(document.getElementById('map'), { // id=mapに地図を埋め込む
       zoom: 13,  // zoomを15
       center: test  // 地図の中心を変数testの緯度経度に指定
     });
+
+    <% @events.each do |event| %>
+      var place = {lat: <%= event.address.latitude %>, lng: <%= event.address.longitude %>}
+      var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
+
+      var contentString = 'イベント名：<a href="/events/<%= event.id %>"><%= event.name %></a><br>期間：<%= event.start.strftime("%Y年%-m月%-d日") %>〜<%= event.end.strftime("%Y年%-m月%-d日") %>';
+      var infowindow = new google.maps.InfoWindow({ //吹き出し
+        content: contentString // マーカーの情報
+      });
+
+      var marker = new google.maps.Marker({  // マーカーの追加
+        position:place,  // マーカーを立てる位置を指定
+        map: map,  // マーカーを立てる地図を指定
+      });
+
+      markerEvent(map, marker, infowindow);
+
+    <% end %>
+  }
+
+  function markerEvent(map, marker, infowindow){
+    marker.addListener('click', function() { //クリックされたら
+      if (currentInfoWindow) { //もしcurrentInfoWindowがあれば = 吹き出しが出ていれば
+            currentInfoWindow.close(); // currentInfoWindowを閉じる
+        }
+          infowindow.open(map,marker); // マーカーの中身を表示
+          currentInfoWindow = infowindow; // 次他のマーカーがクリックされたら消すために、currentInfoWindowに代入
+        });
   }
   
 </script>
