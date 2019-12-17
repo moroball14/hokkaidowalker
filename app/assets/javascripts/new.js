@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('#new_event').on('submit', function(){
     var address = $('.false-place').val();
     $('.true-place').val(address);
