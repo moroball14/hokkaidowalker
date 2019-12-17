@@ -2,30 +2,30 @@
   <ul>
     <li class="footer-list">
       <%= link_to "#", class: "now-event" do %>
-        <%# <%= icon 'fas', 'location-arrow', class: "now-event" %>
-        <%= fa_icon("location-arrow") %>
+        <%= icon 'fas', 'location-arrow', class: "now-event" %>
         場所検索
       <% end %>
     </li>
     <li class="footer-list footer-list__center">
-      簡単検索
       <%= icon 'fas', 'search', class: "search js-modal-open" %>
+      簡単検索
       <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
+          検索する条件を追加
         </div>
       </div>
     </li>
     <li class="footer-list">
       <% if user_signed_in? %>
         <%= link_to "/user/#{current_user.id}", class: "my-page" do %>
-          マイページ
           <%= icon 'fas', 'user', class: "mypage" %>
+          マイページ
         <% end %>
       <% else %>
         <%= link_to new_user_session_path, class: "my-page" do %>
-          マイページ
           <%= icon 'fas', 'user', class: "mypage" %>
+          マイページ
         <% end %>
       <% end %>
     </li>

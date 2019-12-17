@@ -1,0 +1,34 @@
+.content{
+  margin: 0 auto;
+  padding: 40px;
+  position: absolute;
+  top: 0;
+  right: 200px;
+}
+
+.modal{
+  max-height: 100vh;
+  background-color: transparent;
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  &__bg {
+    background: rgba(0,0,0,0.4);
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  }
+  &__content{
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+  }
+}
