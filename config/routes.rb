@@ -14,6 +14,6 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
 
-  resources :events, only: [:index, :new, :create, :update]
+  resources :events, only: [:index, :new, :create, :update, :show]
 
 end
