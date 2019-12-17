@@ -23,3 +23,10 @@ $f-pink-color: #ee6e73;
 .avatar-image {
   border-radius: 30px;
 }
+
+ul.dropdown-content {
+  min-width: 140px;
+  & li a {
+    color: $f-pink-color;
+  }
+}

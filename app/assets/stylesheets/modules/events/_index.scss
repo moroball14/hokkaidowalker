@@ -13,12 +13,6 @@ $f-pink-color: #ee6e73;
 .btn-floating.btn-large {
   width: 70px;
   height: 70px;
-  &:hover {
-    background-color: $f-pink-color;
-  }
-}
-
-.new-event-path {
   color: #fff;
   position: absolute;
   bottom: 85px;
@@ -30,4 +24,7 @@ $f-pink-color: #ee6e73;
   text-align: center;
   background-color: $f-pink-color;
   border-radius: 35px;
+  &:hover {
+    background-color: $f-pink-color;
+  }
 }
