@@ -1,3 +1,5 @@
+$f-pink-color: #ee6e73;
+
 footer {
   width: 100%;
   height: 60px;
@@ -15,5 +17,55 @@ footer {
   &__center {
     border-left: 2px solid #eeeeee;
     border-right: 2px solid #eeeeee;
+  }
+  &:hover i {
+    color: $f-pink-color;
+    transition: 0.5s;
+  }
+}
+
+
+.search-form {
+  &__data-field{
+    width: 180px;
+  }
+  &__label {
+    color: #9e9e9e;
+  }
+  &__submit {
+    border: 1px solid;
+    border-radius: 25px;
+    padding: 10px 10px;
+  }
+}
+
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+  opacity: 1;
+  position: static;
+  pointer-events: auto !important;
+}
+
+.my-page {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  cursor: default;
+  &__icon {
+    color: black;
+  }
+}
+
+.search {
+  width: 100%;
+  height: 100%;
+}
+
+.now-event {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  cursor: default;
+  &__icon {
+    color: black;
   }
 }
