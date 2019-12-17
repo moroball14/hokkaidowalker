@@ -1,15 +1,25 @@
 $f-pink-color: #ee6e73;
 
-#map {
+.maps {
   height: calc(100vh - 120px);
   width: 100vw;
-  position: static;
+  position:  relative;
+}
+
+#map{
+  height: 100%;
+}
+
+.btn-floating.btn-large {
+  width: 70px;
+  height: 70px;
+  &:hover {
+    background-color: $f-pink-color;
+  }
 }
 
 .new-event-path {
   color: #fff;
-  width: 70px;
-  height: 70px;
   position: absolute;
   bottom: 85px;
   right: 85px;

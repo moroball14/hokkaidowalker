@@ -1,13 +1,20 @@
 @mixin wrapper(){
-  width: 960px;
-  height: calc(100vh - 140px);
+  width: 1020px;
+  height: calc(100vh - 80px);
   margin: 10px auto;
   position: relative;
 }
 
+.wrapper {
+  height: 100vh;
+  background-color: #ffecec;
+}
+
 .main-wrapper {
   @include wrapper();
+  background-color: #fff;
   padding: 20px ;
+  border: 1px solid #ddd;
 }
 
 h3 {
@@ -19,4 +26,46 @@ h3 {
 
 .form-wrapper {
   width: 100%;
+}
+
+.category-select {
+  width: 200px;
+  display: block;
+}
+
+.form-element {
+  margin-bottom: 5px;
+}
+
+
+.start_on, .end_on {
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 15px;
+  &__label {
+    margin-bottom: 10px;
+  }
+  select {
+    float: left;
+    margin-right: 5px;
+  }
+}
+
+.category {
+  margin-bottom: 15px;
+  &__label {
+    margin-bottom: 10px;
+  }
+}
+
+.clearfix {
+  clear: both;
+}
+
+.add-btn {
+  background-color: #ee6e73;
+}
+
+.add-btn:hover {
+  background-color: #f08080;
 }

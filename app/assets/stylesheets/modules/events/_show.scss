@@ -1,0 +1,29 @@
+.detail-list {
+  min-height: 60px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  line-height: 40px;
+  border-bottom: 1px solid #cccccc;
+  display: flex;
+  &__head {
+    width: 200px;
+  }
+  &__body {
+    font-size: 20px;
+    font-weight: bold;
+    width: calc(100% - 200px);
+  }
+  &__map {
+    height: 225px;
+    width: 700px;
+  }
+  // &:last-child {
+  //   border-bottom: none;
+  // }
+}
+
+.link_to_image {
+  font-size: 15px;
+  margin-left: 50px;
+}
