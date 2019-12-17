@@ -7,7 +7,10 @@
         <div class="modal js-modal1">
           <div class="modal__bg js-modal-close1"></div>
           <div class="modal__content">
-            場所検索
+              <!-- 地名入力用のinputを追加 -->
+              <input id="address" type="textbox" value="Sydney, NSW">
+              <!-- buttonをクリックしたらcodeAddressを実行 -->
+              <input type="button" value="Encode" onclick="codeAddress()">
           </div>
         </div>
       <% end %>
