@@ -11,8 +11,10 @@
   <% end %>
 
   <!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><%= link_to 'マイページ', "/user/#{current_user.id}" %></li>
-    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-  </ul>
+  <% if user_signed_in? %>
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><%= link_to 'マイページ', "/user/#{current_user.id}" %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+    </ul>
+  <% end %>
 </div>

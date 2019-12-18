@@ -6,11 +6,12 @@
         <%# 場所検索 %>
         <div class="modal js-modal1">
           <div class="modal__bg js-modal-close1"></div>
-          <div class="modal__content">
-              <!-- 地名入力用のinputを追加 -->
-              <input id="address" type="textbox" placeholder="札幌">
-              <!-- buttonをクリックしたらcodeAddressを実行 -->
-              <input type="button" value="Encode" onclick="codeAddress()">
+          <div class="modal__content2">
+            <h3>場所で探す</h3>
+            <!-- 地名入力用のinputを追加 -->
+            <input id="address" type="textbox" placeholder="札幌" class="modal__input">
+            <!-- buttonをクリックしたらcodeAddressを実行 -->
+            <input type="button" value="検索" onclick="codeAddress()" class="search-form__element search-form__submit">
           </div>
         </div>
       <% end %>

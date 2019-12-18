@@ -5,7 +5,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- Compiled and minified CSS -->
@@ -15,7 +14,8 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
-    
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+
   </head>
 
   <body>
@@ -23,8 +23,6 @@
     <%= render partial: 'layouts/header' %>
 
     <%= yield %>
-
-    <%= render partial: 'layouts/footer' %>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
 

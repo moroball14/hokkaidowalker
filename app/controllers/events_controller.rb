@@ -1,10 +1,14 @@
 class EventsController < ApplicationController
 
-  before_action :set_search
-
-  layout 'basic', except: :index
+  layout 'basic', only: :index
 
   def index
+    @events =
+    if params[:q].present?
+      @search.result.includes(:category).order(:start)
+    else
+      Event.all
+    end
   end
 
   def new
@@ -44,16 +48,6 @@ class EventsController < ApplicationController
   private
   def event_params
     params.require(:event).permit(:name, :url, :start, :end, :category_id, address_attributes: [:postcode, :place, :place_building]).merge(user_id: current_user.id)
-  end
-
-  def set_search
-    @search = Event.ransack(params[:q])
-    @events =
-    if params[:q].present?
-      @search.result.includes(:category).order(:start)
-    else
-      Event.all
-    end
   end
 
   # private

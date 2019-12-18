@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_user
+  before_action :set_search
 
   # このアクションを追加
   def after_sign_in_path_for(resource)
@@ -18,6 +19,10 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       @user = User.find(current_user.id)
     end
+  end
+
+  def set_search
+    @search = Event.ransack(params[:q])
   end
 
 end
