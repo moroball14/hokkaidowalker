@@ -6,8 +6,8 @@
 
 <script type="text/javascript">
   var currentInfoWindow = null;
-  let map
-  let geocoder
+  var map
+  var geocoder
   console.log(map);
 
   function initMap() {
@@ -72,7 +72,6 @@
     geocoder.geocode( { 'address': inputAddress}, function(results, status) {
       if (status == 'OK') {
       // map.setCenterで地図が移動
-        console.log(map);
         map.setCenter(results[0].geometry.location);
       } else {
         alert('位置を取得できませんでした');
