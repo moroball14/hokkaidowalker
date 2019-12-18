@@ -1,10 +1,10 @@
 <div class="favorite-link" id="favorite-link-<%= event.id %>">
   <% if current_user.favorites.find_by(event_id: event.id) %>
-    <%= link_to unfavorite_path(event.id), method: :delete, remote: true do %>
+    <%= link_to unfavorite_path(event.id), method: :delete, remote: true, onclick: "M.toast({html: '気になりませんか、、'})" do %>
         <div class = "iine__button">⭐️<%= event.favorites.count %> 気になる</div>
     <% end %>
   <% else %>
-    <%= link_to favorite_path(event.id), method: :post, remote: true do %>
+    <%= link_to favorite_path(event.id), method: :post, remote: true, onclick: "M.toast({html: '気になりましたか！'})" do %>
         <div class = "iine__button">☆<%= event.favorites.count %> 気になる</div>
     <% end %>
   <% end %>
