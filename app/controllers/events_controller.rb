@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: :index
+  before_action :set_event, only: [:edit, :update, :show]
 
   layout 'basic', only: :index
 
@@ -36,12 +37,10 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
     @event.address = Address.new if @event.address.blank?
   end
 
   def update
-    @event = Event.find(params[:id])
     if @event.update(update_event_params)
       redirect_to root_path
     else
@@ -50,7 +49,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
   end
 
   private
@@ -60,6 +58,10 @@ class EventsController < ApplicationController
 
   def update_event_params
     params.require(:event).permit(:name, :url, :start, :end, :category_id, address_attributes: [:postcode, :place, :place_building, :_destroy, :id]).merge(user_id: current_user.id)
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
   end
 
   # private
