@@ -24,6 +24,7 @@
         <div class="place__building">
           <%= i.label :place_building, "建物名等" %>
           <%= i.text_field :place_building, placeholder: "あったら助かります" %>
+          <%= i.hidden_field :id, value: i.object.id %>
         </div>
       </div>
 

@@ -37,6 +37,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @event.address = Address.new if @event.address.blank?
   end
 
   def update
@@ -55,6 +56,10 @@ class EventsController < ApplicationController
   private
   def event_params
     params.require(:event).permit(:name, :url, :start, :end, :category_id, address_attributes: [:postcode, :place, :place_building]).merge(user_id: current_user.id)
+  end
+
+  def update_event_params
+    params.require(:event).permit(:name, :url, :start, :end, :category_id, address_attributes: [:postcode, :place, :place_building, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   # private

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
 
-  resources :events, only: [:index, :new, :create, :update, :show]
+  resources :events, only: [:index, :new, :create, :edit, :update, :show]
 
   post   '/favorite/:event_id' => 'favorites#favorite',   as: 'favorite'
   delete '/favorite/:event_id' => 'favorites#unfavorite', as: 'unfavorite'
