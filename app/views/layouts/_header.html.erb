@@ -1,20 +1,25 @@
 <div class="header">
-  <%= link_to "北海道Walker", root_path, class: "brand-logo title" %>
-  <% if user_signed_in? %>
-    
-    <% if @user.avatar? %>
-      <%= image_tag @user.avatar.url(:thumb), class: "avatar-image dropdown-trigger", data: {target: 'dropdown1'} %>
+  <%= link_to "北海道Walker", root_path, class: "brand-logo header__title" %>
+  <div class="header__acount">
+    <% if user_signed_in? %>
+      ようこそ、<%= @user.nickname %>さん
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.url(:thumb), class: "avatar-image dropdown-trigger", data: {target: 'dropdown1'} %>
+      <% else %>
+        <%= icon 'fas', 'user-circle', class: "avatar-image__icon dropdown-trigger", data: {target: 'dropdown1'} %>
+      <% end %>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path, class: "header__acount__no-login" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "header__acount__no-login" %>
     <% end %>
-  <% else %>
-    <%= link_to "ログイン", new_user_session_path %>
-    <%= link_to "新規登録", new_user_registration_path %>
-  <% end %>
+      
 
-  <!-- Dropdown Structure -->
-  <% if user_signed_in? %>
-    <ul id='dropdown1' class='dropdown-content'>
-      <li><%= link_to 'マイページ', "/user/#{current_user.id}" %></li>
-      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-    </ul>
-  <% end %>
+    <!-- Dropdown Structure -->
+    <% if user_signed_in? %>
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><%= link_to 'マイページ', "/user/#{current_user.id}" %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    <% end %>
+  </div>
 </div>
