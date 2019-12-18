@@ -1,1 +1,38 @@
-これはマイページです
+<div class="wrapper">
+  <div class="main-wrapper">
+    <ul id="tabs-swipe-demo" class="tabs">
+      <li class="tab col s3"><%= link_to "気になる", "#test-swipe-1", class: "active" %></li>
+      <li class="tab col s3"><%= link_to "行った", "#test-swipe-2" %></li>
+    </ul>
+    <div id="test-swipe-1" class="col s12 space">
+      <div class="interested-list">
+        <h3>あなたの気になるイベント一覧</h3>
+        <div class="interested-event">
+          <div class="interested-event__title">
+            <ul>
+              <li class="interested-event__title--day">開催日</li>
+              <li class="interested-event__title--event-name">イベント名</li>
+            </ul>
+          </div>
+
+          <div class="interested-event__list">
+            <ul>
+              <% @events.each do |event| %>
+                <li class="interested-event__list--details">
+                  <span class="interested-event__list--details-days"><%= event.start.strftime("%Y年%-m月%-d日") %></span>
+                  <span class="interested-event__list--details-middle">〜</span>
+                  <span class="interested-event__list--details-days"><%= event.end.strftime("%Y年%-m月%-d日") %></span>
+                  <%= link_to "#{event.name}", event_path(event.id), class: "interested-event__list--details-event-name" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="test-swipe-2" class="col s12 space">
+      行ったリスト
+    </div>
+</div>

@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, except: :index
 
   layout 'basic', only: :index
 
@@ -20,7 +21,6 @@ class EventsController < ApplicationController
     @address = Address.new(event_params[:address_attributes])
     @address.geocode
     unless @address[:latitude] == nil
-    # binding.pry
       if (@address[:latitude] > 41.3291265 && (@address[:longitude] < 140.6749102 || @address[:longitude] > 141.5812776)) || (@address[:latitude] > 41.6583837 && (@address[:longitude] > 140.6749102 && @address[:longitude] < 141.5812776))
         new_params = event_params
         new_params[:address_attributes].merge!(latitude: @address.latitude, longitude: @address.longitude)

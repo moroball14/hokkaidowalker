@@ -6,6 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def detail
     @user = User.find(current_user.id)
+    @events = @user.favorite_events.where('end >= ?', Date.today-7).order(:start)
   end
   
   # protected

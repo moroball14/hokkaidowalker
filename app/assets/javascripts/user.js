@@ -20,4 +20,8 @@ $(document).on('turbolinks:load', function(){
     reader.readAsDataURL(file);
 
   });
+
+  $(document).ready(function(){
+    $('.tabs').tabs();
+  });
 });
