@@ -1,6 +1,9 @@
 <div class="wrapper">
   <div class="main-wrapper">
     <h3>イベント詳細</h3>
+    <% if current_user.id == @event.user_id %>
+      <%= link_to 'イベントを編集する', edit_event_path(@event) %>
+    <% end %>
 
     <%= render 'favorites/favorite', event: @event %>
 

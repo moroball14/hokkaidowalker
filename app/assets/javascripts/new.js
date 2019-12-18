@@ -1,6 +1,13 @@
 $(document).on('turbolinks:load', function(){
   $('#new_event').on('submit', function(){
     var address = $('.false-place').val();
+    console.log(address);
+    $('.true-place').val(address);
+  });
+
+  $('.edit_event').on('submit', function(){
+    var address = $('.false-place').val();
+    console.log(address);
     $('.true-place').val(address);
   });
 

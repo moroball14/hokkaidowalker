@@ -13,6 +13,7 @@
       <div class="postcode">
         <%= i.label :postcode, "郵便番号 (必須)" %>
         <%= i.text_field :postcode, size: "10", maxlength: "8", onKeyUp: "AjaxZip3.zip2addr(this,'','addr11','addr11');", placeholder: "ハイフンなし7桁" %>  <%# name属性のzip11は無くてもいい %>
+        <%= i.hidden_field :id, value: i.object.id %>
       </div>
 
       <div class="place">
@@ -20,6 +21,7 @@
           <%= i.label :place, "住所" %>
           <%= i.text_field :place, name: "addr11", size: "60", class: "false-place", placeholder: "郵便番号から自動入力されます" %>
           <%= i.text_field :place, class: "true-place", type: "hidden" %>
+          <%= i.hidden_field :id, value: i.object.id %>
         </div>
         <div class="place__building">
           <%= i.label :place_building, "建物名等" %>
