@@ -10,12 +10,18 @@ $(document).on('turbolinks:load', function(){
 
   $('.js-modal-open1').on('click',function(){
     $('.js-modal1').fadeIn();
+    $('.modal__input').focus();
     return false;
-});
-$('.js-modal-close1').on('click',function(){
+  });
+  $('.js-modal-close1').on('click',function(){
+      $('.js-modal1').fadeOut();
+      return false;
+  });
+
+  $('.modal__submit').on('click',function(){
     $('.js-modal1').fadeOut();
     return false;
-});
+  });
 
   $('.dropdown-trigger').dropdown();
 });
