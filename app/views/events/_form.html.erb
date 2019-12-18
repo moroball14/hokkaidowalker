@@ -41,14 +41,14 @@
       <div class="start_on__label">
         <%= f.label :start, "開始日" %>
       </div>
-      <%= f.date_field :start, min: Date.today, value: Time.now.strftime("%Y-%m-%d"), class: 'form-control start_on__form' %>
+      <%= f.date_field :start, min: Date.today, class: 'form-control start_on__form' %>
     </div>
 
     <div class="end_on">
       <div class="end_on__label">
         <%= f.label :end, "終了日" %>
       </div>
-      <%= f.date_field :end, min: Date.today, value: Time.now.strftime("%Y-%m-%d"), class: 'form-control end_on__form' %>
+      <%= f.date_field :end, min: Date.today, class: 'form-control end_on__form' %>
     </div>
 
     <div class="category clearfix">

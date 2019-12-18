@@ -23,12 +23,12 @@
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
           検索する条件を追加
-          <%= search_form_for @search do |f| %>
-            <%= f.label :end_on, '期間' %>
-            <%= f.date_field :end_gteq, include_blank: true, class: "search-form__element search-form__data-field search-form__start" %> 〜　
-            <%= f.date_field :start_lteq, include_blank: true, class: "search-form__element search-form__data-field search-form__end" %>　　
-            <%= f.submit '検索', class: "search-form__element search-form__submit" %>
-          <% end %>
+            <%= search_form_for @search do |f| %>
+              <%= f.label :end_on, '期間' %>
+              <%= f.date_field :end_gteq, include_blank: true, class: "search-form__element search-form__data-field search-form__start" %> 〜　
+              <%= f.date_field :start_lteq, include_blank: true, class: "search-form__element search-form__data-field search-form__end" %>　　
+              <%= f.submit '検索', class: "search-form__element search-form__submit" %>
+            <% end %>
         </div>
       </div>
     </li>
