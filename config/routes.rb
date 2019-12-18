@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :new, :create, :update, :show]
 
+  post   '/favorite/:event_id' => 'favorites#favorite',   as: 'favorite'
+  delete '/favorite/:event_id' => 'favorites#unfavorite', as: 'unfavorite'
+
 end
