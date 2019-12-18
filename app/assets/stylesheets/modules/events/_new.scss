@@ -1,12 +1,12 @@
 @mixin wrapper(){
   width: 1020px;
-  height: calc(100vh - 80px);
-  margin: 10px auto;
+  margin: 0 auto;
   position: relative;
 }
 
 .wrapper {
-  height: 100vh;
+  height: calc(100vh - 60px);
+  padding-top: 30px;
   background-color: #ffecec;
 }
 
@@ -35,6 +35,18 @@ h3 {
 
 .form-element {
   margin-bottom: 5px;
+}
+
+.place {
+  display: flex;
+  &__address {
+    width: 49%;
+    margin-right: 1%;
+  }
+  &__building {
+    width: 50%;
+    margin-right: 0px;
+  }
 }
 
 
