@@ -5,11 +5,17 @@ class EventsController < ApplicationController
   layout 'basic', only: :index
 
   def index
+    @event = Event.new
     @events =
     if params[:q].present?
       @search.result.includes(:category).order(:start)
     else
       Event.all
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @topics }
     end
   end
 
