@@ -12,7 +12,7 @@
 
     <div class="detail-list">
       <div class="detail-list__head">イベント名</div>
-      <div class="detail-list__body"><%= @event.name %><%= link_to "イメージを見る", "https://www.google.co.jp/search?q=#{@event.name}&sxsrf=ACYBGNRpt-p1nXhkCIn-YzO4GqmNOenIGA:1572737338526&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjx3IyT18zlAhXC7WEKHWriBaIQ_AUIFCgD&biw=1440&bih=789", target: :_blank, class: "link_to_image" %></div>
+      <div class="detail-list__body"><%= @event.name %><%= link_to "イメージを見る（google画像検索へ遷移します）", "https://www.google.co.jp/search?q=#{@event.name}&sxsrf=ACYBGNRpt-p1nXhkCIn-YzO4GqmNOenIGA:1572737338526&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjx3IyT18zlAhXC7WEKHWriBaIQ_AUIFCgD&biw=1440&bih=789", target: :_blank, class: "link_to_image" %></div>
     </div>
 
     <div class="detail-list">
