@@ -17,7 +17,26 @@
     color: #aaa;
     margin-right: 10px;
   }
-  &:first-child {
-    background: linear-gradient(to right, #feb400, #FFE300);
+  // &:first-child {
+  //   background: linear-gradient(to right, #FFE300, #feb400);
+  // }
+}
+
+li:first-child {
+  .card.horizontal .card-image {
+  background: radial-gradient(#FFE300, #fecb00);
   }
 }
+
+li:nth-child(2) {
+  .card.horizontal .card-image {
+    background: radial-gradient(#E8E8E8,#9E9E9E);
+  }
+}
+
+li:nth-child(3) {
+  .card.horizontal .card-image {
+    background: radial-gradient(#C9AE5D,#C47022);
+  }
+}
+
