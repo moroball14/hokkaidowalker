@@ -5,7 +5,10 @@ class EventsController < ApplicationController
   layout 'basic', only: :index
 
   def index
-    @event = Event.new
+    @past_events = Event.where('end < ?', Date.today)
+    if @past_events.present?
+      @past_events.destroy_all
+    end
     @events =
     if params[:q].present?
       @search.result.includes(:category).order(:start)
