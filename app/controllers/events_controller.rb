@@ -51,6 +51,10 @@ class EventsController < ApplicationController
   def show
   end
 
+  def ranking
+    @all_ranks = Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(3).pluck(:event_id))
+  end
+
   private
   def event_params
     params.require(:event).permit(:name, :url, :start, :end, :category_id, address_attributes: [:postcode, :place, :place_building]).merge(user_id: current_user.id)

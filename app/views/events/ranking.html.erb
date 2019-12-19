@@ -1,0 +1,5 @@
+<div class="wrapper">
+  <% @all_ranks.each.with_index(1) do |event, i| %>
+    第<%= i %>位 <%= event.name %> <%= event.favorites.count %>人が気になっています
+  <% end %>
+</div>
