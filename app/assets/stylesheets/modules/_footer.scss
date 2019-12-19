@@ -5,7 +5,7 @@ footer {
   height: 60px;
   position: absolute;
   bottom: 0;
-  background-color: #fff;
+  background-color: #00695c;
   box-shadow: 0 -2px 4px #999999;
 }
 
@@ -45,27 +45,18 @@ footer {
   pointer-events: auto !important;
 }
 
-.my-page {
+.my-page, .now-event {
   width: 100%;
   height: 100%;
   display: inline-block;
   cursor: default;
   &__icon {
-    color: black;
+    color: #fff;
   }
 }
 
 .search {
   width: 100%;
   height: 100%;
-}
-
-.now-event {
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-  cursor: default;
-  &__icon {
-    color: black;
-  }
+  color: #fff;
 }
