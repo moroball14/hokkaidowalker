@@ -10,7 +10,7 @@ class EventsController < ApplicationController
     if params[:q].present?
       @search.result.includes(:category).order(:start)
     else
-      Event.all
+      Event.where('end >= ?', Date.today).order(:start)
     end
 
     # respond_to do |format|
