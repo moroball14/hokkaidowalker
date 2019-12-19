@@ -1,0 +1,23 @@
+.rank {
+  width: 200px;
+  height: 100%;
+  &__num {
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 45px;
+    &__people {
+      text-align: center;
+    }
+    &__person {
+      color: red;
+    }
+  }
+  &__details {
+    color: #aaa;
+    margin-right: 10px;
+  }
+  &:first-child {
+    background: linear-gradient(to right, #feb400, #FFE300);
+  }
+}
