@@ -1,40 +1,46 @@
-<h2>Sign up</h2>
+<div class="login-wrapper">
+  <div class="login-wrapper__form login-wrapper__form__signup">
+    <%= link_to "北海道Walker", root_path, class: "brand-logo header__title" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+      <div class="field">
+        <%= f.label :nickname, "ニックネーム", {class: 'field__label'} %><br />
+        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email, "メールアドレス", {class: 'field__label'} %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, "パスワード（6文字以上）", {class: 'field__label'} %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "メールアドレス（確認用）", {class: 'field__label'} %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :avatar, "アイコン画像", {class: 'field__label'} %><br />
+        <div class="fileField" onClick="$('#myfile').click()">
+          <%= image_tag 'user.png', id: "img1", size: '200x200', class: "field__icon" %>
+        </div>
+        <%= f.file_field :avatar, id: 'myfile', style: "display:none;" %>
+        <%= f.hidden_field :avatar_cache %>
+      </div>
+
+      <div class="actions field">
+        <%= f.submit "新規登録する", class: "search-form__element search-form__submit" %>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= render "users/shared/links" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.file_field :avatar, id: 'myfile' %>
-    <%= f.hidden_field :avatar_cache %>
-    <%= image_tag '', id: "img1", size: '200x200' %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
