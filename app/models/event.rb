@@ -7,4 +7,6 @@ class Event < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favoriting_users, through: :favorites, source: :user
 
+  validates :name, presence: true
+
 end

@@ -11,8 +11,8 @@
 
     <%= f.fields_for :address, @event.address || Address.new do |i| %>
       <div class="postcode">
-        <%= i.label :postcode, "郵便番号 (必須)" %>
-        <%= i.text_field :postcode, size: "10", maxlength: "8", onKeyUp: "AjaxZip3.zip2addr(this,'','addr11','addr11');", placeholder: "ハイフンなし7桁" %>  <%# name属性のzip11は無くてもいい %>
+        <%= i.label :postcode, "郵便番号" %>
+        <%= i.text_field :postcode, size: "10", maxlength: "8", onKeyUp: "AjaxZip3.zip2addr(this,'','addr11','addr11');", placeholder: "半角7桁" %>  <%# name属性のzip11は無くてもいい %>
         <%= i.hidden_field :id, value: i.object.id %>
       </div>
 
@@ -25,7 +25,7 @@
         </div>
         <div class="place__building">
           <%= i.label :place_building, "建物名等" %>
-          <%= i.text_field :place_building, placeholder: "あったら助かります" %>
+          <%= i.text_field :place_building, placeholder: "例）さっぽろテレビ塔" %>
           <%= i.hidden_field :id, value: i.object.id %>
         </div>
       </div>
@@ -34,7 +34,7 @@
 
     <div class="url">
       <%= f.label :url, "イベントURL" %>
-      <%= f.text_field :url, class:'form-control', placeholder: "例: https://hokkaido.com" %>
+      <%= f.text_field :url, class:'form-control', placeholder: "例） https://hokkaido.com" %>
     </div>
 
     <div class="start_on">
