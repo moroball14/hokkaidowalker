@@ -41,6 +41,12 @@
       </div>
     </li>
     <li class="footer-list">
+      <%= link_to ranking_events_path, class: "ranking" do %>
+        <%= icon 'fas', 'crown', class: "ranking__icon" %>
+        <%# ランキング %>
+      <% end %>
+    </li>
+    <li class="footer-list">
       <% if user_signed_in? %>
         <%= link_to "/user/#{current_user.id}", class: "my-page" do %>
           <%= icon 'fas', 'user', class: "my-page__icon" %>

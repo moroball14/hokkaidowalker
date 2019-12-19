@@ -29,6 +29,10 @@
     li {
       height: 40px;
       border-bottom: 1px dotted #dddddd;
+      display: flex;
+    }
+    &--dayordays {
+      width: 320px;
     }
     &--details-days {
       display: inline-block;
