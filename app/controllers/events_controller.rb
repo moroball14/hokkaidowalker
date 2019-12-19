@@ -13,10 +13,10 @@ class EventsController < ApplicationController
       Event.all
     end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @topics }
-    end
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.json { render json: @topics }
+    # end
   end
 
   def new
