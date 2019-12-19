@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :set_event, only: [:edit, :update, :show]
+  before_action :set_event, only: [:edit, :update, :destroy, :show]
 
   layout 'basic', only: :index
 
@@ -52,6 +52,11 @@ class EventsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to root_path
   end
 
   def show

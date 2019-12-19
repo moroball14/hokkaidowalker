@@ -1,3 +1,9 @@
+.users-event {
+  position: absolute;
+  top: 20px;
+  left: 200px;
+}
+
 .detail-list {
   min-height: 60px;
   width: 100%;
@@ -18,9 +24,9 @@
     height: 225px;
     width: 700px;
   }
-  // &:last-child {
-  //   border-bottom: none;
-  // }
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .link_to_image {

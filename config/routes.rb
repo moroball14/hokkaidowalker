@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
 
-  resources :events, only: [:index, :new, :create, :edit, :update, :show] do
+  resources :events do
     collection do
       get 'ranking'
     end
