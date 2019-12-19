@@ -21,9 +21,18 @@
       <% end %>
 
       <div class="actions field">
-        <%= f.submit "ログイン", class: "search-form__element search-form__submit" %>
+        <%= f.submit "ログイン", class: "btn btn-default" %>
       </div>
     <% end %>
+
+    <div class="field">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.hidden_field :email, value: 'test@expamle.com' %>
+        <%= f.hidden_field :password, value: 'password' %>
+        <%= f.submit 'テストユーザーでログイン', class: 'btn btn-default' %>
+      <% end %>
+    </div>
+
     <div class="field">
       <%= render "users/shared/links" %>
     </div>

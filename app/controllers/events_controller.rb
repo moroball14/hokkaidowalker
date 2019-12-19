@@ -63,7 +63,7 @@ class EventsController < ApplicationController
   end
 
   def ranking
-    @all_ranks = Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(3).pluck(:event_id))
+    @all_ranks = Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
   end
 
   private
