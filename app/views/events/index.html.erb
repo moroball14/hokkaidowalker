@@ -8,7 +8,6 @@
   var currentInfoWindow = null;
   var map
   var geocoder
-  console.log(map);
 
   function initMap() {
     geocoder = new google.maps.Geocoder()
@@ -17,7 +16,6 @@
       zoom: 14,  // zoomを15
       center: test  // 地図の中心を変数testの緯度経度に指定
     });
-    console.log(map);
 
     <% @events.each do |event| %>
       var place = {lat: <%= event.address.latitude %>, lng: <%= event.address.longitude %>}

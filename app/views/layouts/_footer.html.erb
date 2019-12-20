@@ -11,31 +11,45 @@
             <!-- 地名入力用のinputを追加 -->
             <input id="address" type="textbox" placeholder="札幌" class="modal__input">
             <!-- buttonをクリックしたらcodeAddressを実行 -->
-            <input type="button" value="検索" onclick="codeAddress()" class="search-form__element search-form__submit modal__submit">
+            <input type="button" value="検索" onclick="codeAddress()" class="btn btn-default">
           </div>
         </div>
       <% end %>
     </li>
-    <li class="footer-list footer-list__center js-modal-open">
-      <%= icon 'fas', 'search', class: "search" %>
+    <li class="footer-list footer-list__center">
+      <div class="js-modal-open">
+        <%= icon 'fas', 'search', class: "search" %>
+      </div>
       <%# 簡単検索 %>
       <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
           <%= search_form_for @search do |f| %>
-            <%= f.label :end_on, '期間' %>
-            <%= f.date_field :end_gteq, include_blank: true, value: Date.today, class: "search-form__element search-form__data-field search-form__start" %> 〜
-            <%= f.date_field :start_lteq, include_blank: true, class: "search-form__element search-form__data-field search-form__end" %>
-            
-            <span class="search-form__element search-form__label">カテゴリ</span>
-            <%= f.check_box :category_id_eq_any, { multiple: true }, 1, '' %>グルメ
-            <%= f.check_box :category_id_eq_any, { multiple: true }, 2, '' %>お祭り
-            <%= f.check_box :category_id_eq_any, { multiple: true }, 3, '' %>花火
-            <%= f.check_box :category_id_eq_any, { multiple: true }, 4, '' %>イルミネーション
-            <%= f.check_box :category_id_eq_any, { multiple: true }, 5, '' %>よさこい
-            <%= f.check_box :category_id_eq_any, { multiple: true }, 6, '' %>その他<br>
+            <div>
+              <%= f.label :end, '期間' %>
+            </div>
+            <div>
+              <%= f.date_field :end_gteq, include_blank: true, class: "search-form__element search-form__data-field search-form__start" %> 〜
+              <%= f.date_field :start_lteq, include_blank: true, class: "search-form__element search-form__data-field search-form__end" %>
+            </div>
 
-            <%= f.submit '検索', class: "search-form__element search-form__submit" %>
+            <%# <span class="search-form__element search-form__label">カテゴリ</span> %>
+            <div>
+              <%= f.label :category_id, 'カテゴリ' %>
+            </div>
+            <div>
+              <div>
+                <%= f.check_box :category_id_eq_any, { multiple: true }, 1, '' %>グルメ
+                <%= f.check_box :category_id_eq_any, { multiple: true }, 2, '' %>お祭り
+                <%= f.check_box :category_id_eq_any, { multiple: true }, 3, '' %>花火
+              </div>
+              <div>
+                <%= f.check_box :category_id_eq_any, { multiple: true }, 4, '' %>イルミネーション
+                <%= f.check_box :category_id_eq_any, { multiple: true }, 5, '' %>よさこい
+                <%= f.check_box :category_id_eq_any, { multiple: true }, 6, '' %>その他
+              </div>
+            </div>
+            <%= f.submit '検索', class: "btn btn-default" %>
           <% end %>
         </div>
       </div>

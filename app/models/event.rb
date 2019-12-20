@@ -8,5 +8,8 @@ class Event < ApplicationRecord
   has_many :favoriting_users, through: :favorites, source: :user
 
   validates :name, presence: true
+  validates :start, presence: true
+  validates :end, presence: true
+  validates :category_id, presence: true
 
 end

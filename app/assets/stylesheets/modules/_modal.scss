@@ -15,7 +15,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1;
   &__bg {
     background: rgba(0,0,0,0.4);
     height: 100vh;
@@ -39,9 +38,12 @@
     top: 50%;
     transform: translate(-50%,-50%);
     width: 40%;
-    border-radius: 90px;
   }
   &__input {
     height: 40px;
   }
+}
+
+input[type=date]:not(.browser-default) {
+  width: 200px;
 }

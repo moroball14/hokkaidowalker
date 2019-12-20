@@ -11,15 +11,10 @@ class EventsController < ApplicationController
     end
     @events =
     if params[:q].present?
-      @search.result.includes(:category).order(:start)
+      @search.result.includes(:address)
     else
-      Event.where('end >= ?', Date.today).order(:start)
+      Event.includes(:address).where('end >= ?', Date.today)
     end
-
-    # respond_to do |format|
-    #   format.html # index.html.erb
-    #   format.json { render json: @topics }
-    # end
   end
 
   def new
@@ -32,11 +27,15 @@ class EventsController < ApplicationController
     @address.geocode
     unless @address[:latitude] == nil
       if (@address[:latitude] > 41.3291265 && (@address[:longitude] < 140.6749102 || @address[:longitude] > 141.5812776)) || (@address[:latitude] > 41.6583837 && (@address[:longitude] > 140.6749102 && @address[:longitude] < 141.5812776))
-        new_params = event_params
-        new_params[:address_attributes].merge!(latitude: @address.latitude, longitude: @address.longitude)
-        @event = Event.new(new_params)
-        @event.save
-        redirect_to root_path
+          new_params = event_params
+          new_params[:address_attributes].merge!(latitude: @address.latitude, longitude: @address.longitude)
+          @event = Event.new(new_params)
+          if @event.valid?
+            @event.save
+            redirect_to root_path
+          else
+            render 'new'
+          end
       else
         redirect_to new_event_path, alert: '北海道ではありません'# 緯度でバリデーションかけて「北海道ではありません」とエラーメッセージ を返す
       end

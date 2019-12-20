@@ -1,11 +1,11 @@
 $(document).on('turbolinks:load', function(){
   $('.js-modal-open').on('click',function(){
-      $('.js-modal').fadeIn();
-      return false;
+    $('.js-modal').fadeIn();
+    return false;
   });
   $('.js-modal-close').on('click',function(){
-      $('.js-modal').fadeOut();
-      return false;
+    $('.js-modal').fadeOut();
+    return false;
   });
 
   $('.js-modal-open1').on('click',function(){
@@ -14,8 +14,8 @@ $(document).on('turbolinks:load', function(){
     return false;
   });
   $('.js-modal-close1').on('click',function(){
-      $('.js-modal1').fadeOut();
-      return false;
+    $('.js-modal1').fadeOut();
+    return false;
   });
 
   $('.modal__submit').on('click',function(){
