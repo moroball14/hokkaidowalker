@@ -49,10 +49,20 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update(update_event_params)
-      redirect_to root_path
+    @address = Address.new(event_params[:address_attributes])
+    @address.geocode
+    unless @address[:latitude] == nil
+      if (@address[:latitude] > 41.3291265 && (@address[:longitude] < 140.6749102 || @address[:longitude] > 141.5812776)) || (@address[:latitude] > 41.6583837 && (@address[:longitude] > 140.6749102 && @address[:longitude] < 141.5812776))
+        new_update_params = update_event_params
+        new_update_params[:address_attributes].merge!(latitude: @address.latitude, longitude: @address.longitude)
+        if @event.update(new_update_params)
+          redirect_to root_path
+        end
+      else
+        redirect_to edit_event_path(@event), alert: '北海道ではありません'# 緯度でバリデーションかけて「北海道ではありません」とエラーメッセージ を返す
+      end
     else
-      render :edit
+      redirect_to edit_event_path(@event), alert: '位置情報を取得できませんでした'
     end
   end
 
