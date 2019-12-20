@@ -1,9 +1,6 @@
 <div class="wrapper">
   <div class="main-wrapper">
     <h3>イベント登録する</h3>
-    <% if flash[:alert] %>
-      <div class="error-messages"><%= flash[:alert] %></div>
-    <% end %>
 
     <%= render partial: 'events/form' %>
 

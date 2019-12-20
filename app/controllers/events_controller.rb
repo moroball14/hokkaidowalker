@@ -32,7 +32,7 @@ class EventsController < ApplicationController
           @event = Event.new(new_params)
           if @event.valid?
             @event.save
-            redirect_to root_path
+            redirect_to root_path, notice: 'イベントを登録しました'
           else
             render 'new'
           end
@@ -55,8 +55,10 @@ class EventsController < ApplicationController
       if (@address[:latitude] > 41.3291265 && (@address[:longitude] < 140.6749102 || @address[:longitude] > 141.5812776)) || (@address[:latitude] > 41.6583837 && (@address[:longitude] > 140.6749102 && @address[:longitude] < 141.5812776))
         new_update_params = update_event_params
         new_update_params[:address_attributes].merge!(latitude: @address.latitude, longitude: @address.longitude)
-        if @event.update(new_update_params)
+        if @event.valid? && @event.update(new_update_params)
           redirect_to root_path
+        else
+          redirect_to edit_event_path(@event), alert: '上書きできませんでした'
         end
       else
         redirect_to edit_event_path(@event), alert: '北海道ではありません'# 緯度でバリデーションかけて「北海道ではありません」とエラーメッセージ を返す
@@ -68,7 +70,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: 'イベントを削除しました'
   end
 
   def show

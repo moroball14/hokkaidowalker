@@ -24,4 +24,6 @@ $(document).on('turbolinks:load', function(){
   });
 
   $('.dropdown-trigger').dropdown();
+
+  setTimeout("$('.flash-index').fadeOut('slow')", 3000)
 });

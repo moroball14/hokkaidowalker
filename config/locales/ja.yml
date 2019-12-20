@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      event: イベント
+    attributes:
+      event:
+        name: イベント名
+        start: 開始日
+        end: 終了日
+        category_id: カテゴリー

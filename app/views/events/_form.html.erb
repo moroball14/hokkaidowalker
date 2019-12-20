@@ -2,6 +2,9 @@
 
   <%= form_for @event do |f| %>
 
+    <% if flash[:alert] %>
+      <div class="error-messages"><%= flash[:alert] %></div>
+    <% end %>
     <%= render 'layouts/error_messages', model: f.object %>
 
     <div class="event_name">

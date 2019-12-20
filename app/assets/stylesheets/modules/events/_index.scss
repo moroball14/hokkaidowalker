@@ -6,6 +6,13 @@ $f-pink-color: #00695c;
   position:  relative;
 }
 
+.flash-index {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  background-color: #ffffcc;
+}
+
 #map{
   height: 100%;
 }

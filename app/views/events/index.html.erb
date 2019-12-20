@@ -1,4 +1,7 @@
 <div class="maps">
+  <% if flash[:notice] %>
+    <div class="error-messages flash-index"><%= flash[:notice] %></div>
+  <% end %>
   <div id='map'></div>
 </div>
 
