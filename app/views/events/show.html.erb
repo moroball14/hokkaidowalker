@@ -3,8 +3,8 @@
     <h3>イベント詳細</h3>
     <div class="users-event">
       <% if current_user.id == @event.user_id %>
-        <%= link_to 'イベントを編集する', edit_event_path(@event) %>
-        <%= link_to 'イベントを削除する', event_path(@event), method: :delete %>
+        <%= link_to '編集', edit_event_path(@event), class: "users-event__link" %>
+        <%= link_to '削除', event_path(@event), method: :delete, class: "users-event__link" %>
       <% end %>
     </div>
 
