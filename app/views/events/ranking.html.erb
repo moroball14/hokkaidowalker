@@ -28,8 +28,8 @@
                     <span class="rank__details">
                       <%= icon 'fas', 'calendar-alt' %>
                       <%= event.start.strftime("%Y年%-m月%-d日") %>
-                      <% unless event.start == event.end %>
-                        〜  <%= event.end.strftime("%Y年%-m月%-d日") %>
+                      <% unless event.start == event.end_on %>
+                        〜  <%= event.end_on.strftime("%Y年%-m月%-d日") %>
                       <% end %>
                     </span>
                   </p>

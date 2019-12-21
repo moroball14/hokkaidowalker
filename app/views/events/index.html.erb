@@ -25,7 +25,7 @@
       var transitLayer = new google.maps.TransitLayer();
       transitLayer.setMap(map);
 
-      var contentString = 'イベント名：<a href="/events/<%= event.id %>"><%= event.name %></a><br>期間：<%= event.start.strftime("%Y年%-m月%-d日") %>〜<%= event.end.strftime("%Y年%-m月%-d日") %>';
+      var contentString = 'イベント名：<a href="/events/<%= event.id %>"><%= event.name %></a><br>期間：<%= event.start.strftime("%Y年%-m月%-d日") %>〜<%= event.end_on.strftime("%Y年%-m月%-d日") %>';
       var infowindow = new google.maps.InfoWindow({ //吹き出し
         content: contentString // マーカーの情報
       });
@@ -53,7 +53,7 @@
       var transitLayer = new google.maps.TransitLayer();
       transitLayer.setMap(map);
 
-      var contentString = 'イベント名：<a href="/events/<%= event.id %>"><%= event.name %></a><br>期間：<%= event.start.strftime("%Y年%-m月%-d日") %>〜<%= event.end.strftime("%Y年%-m月%-d日") %>';
+      var contentString = 'イベント名：<a href="/events/<%= event.id %>"><%= event.name %></a><br>期間：<%= event.start.strftime("%Y年%-m月%-d日") %>〜<%= event.end_on.strftime("%Y年%-m月%-d日") %>';
       var infowindow = new google.maps.InfoWindow({ //吹き出し
         content: contentString // マーカーの情報
       });

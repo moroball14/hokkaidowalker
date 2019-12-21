@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   layout 'basic', only: :index
 
   def index
-    @past_events = Event.where('end < ?', Date.today)
+    @past_events = Event.where('end_on < ?', Date.today)
     if @past_events.present?
       @past_events.destroy_all
     end
@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     if params[:q].present?
       @search.result.includes(:address)
     else
-      Event.includes(:address).where('end >= ?', Date.today)
+      Event.includes(:address).where('end_on >= ?', Date.today)
     end
   end
 
@@ -82,20 +82,15 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :url, :start, :end, :category_id, address_attributes: [:postcode, :place, :place_building]).merge(user_id: current_user.id)
+    params.require(:event).permit(:name, :url, :start, :end_on, :category_id, address_attributes: [:postcode, :place, :place_building]).merge(user_id: current_user.id)
   end
 
   def update_event_params
-    params.require(:event).permit(:name, :url, :start, :end, :category_id, address_attributes: [:postcode, :place, :place_building, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:event).permit(:name, :url, :start, :end_on, :category_id, address_attributes: [:postcode, :place, :place_building, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_event
     @event = Event.find(params[:id])
   end
-
-  # private
-  # def event_params(address_hash={})
-  #   params.require(:event).permit(:name, :url, :start, :end, :category_id, address_attributes: [:postcode, :place, :place_building]).merge(user_id: current_user.id, **address_hash)
-  # end
 
 end

@@ -20,9 +20,9 @@
                 <li class="interested-event__list--details">
                   <div class="interested-event__list--dayordays">
                     <span class="interested-event__list--details-days"><%= event.start.strftime("%Y年%-m月%-d日") %></span>
-                    <% unless event.start == event.end %>
+                    <% unless event.start == event.end_on %>
                       <span class="interested-event__list--details-middle">〜</span>
-                      <span class="interested-event__list--details-days"><%= event.end.strftime("%Y年%-m月%-d日") %></span>
+                      <span class="interested-event__list--details-days"><%= event.end_on.strftime("%Y年%-m月%-d日") %></span>
                     <% end %>
                   </div>
                   <%= link_to "#{event.name}", event_path(event.id), class: "interested-event__list--details-event-name" %>

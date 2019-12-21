@@ -9,7 +9,7 @@ class Event < ApplicationRecord
 
   validates :name, presence: true
   validates :start, presence: true
-  validates :end, presence: true
+  validates :end_on, presence: true
   validates :category_id, presence: true
 
 end
