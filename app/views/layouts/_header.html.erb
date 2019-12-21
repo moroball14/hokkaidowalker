@@ -1,5 +1,10 @@
 <div class="header">
-  <%= link_to "北海道Walker", root_path, class: "brand-logo header__title" %>
+  <%= link_to root_path, class: "header__wrapper" do %>
+    <%= image_tag 'hokkaido.jpg', size: '60x60', alt: "北海道Walker" %>
+    <div class="title__wrapper">
+      <div class="brand-logo header__title">北海道Walker</div>
+    </div>
+  <% end %>
   <div class="header__acount">
     <% if user_signed_in? %>
       ようこそ、<%= @user.nickname %>さん
