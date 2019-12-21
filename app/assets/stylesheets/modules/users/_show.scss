@@ -2,7 +2,7 @@
 .interested-list {
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: $f-white-color;
   padding: 10px;
 }
 
@@ -46,8 +46,8 @@
       color: black;
     }
     &--details-event-name:hover {
-      color: #00695c;
-      transition: 0.5s;
+      color: $f-green-color;
+      transition: 0.3s;
     }
   }
 }
