@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_events, through: :favorites, source: :event
   
+  validates :nickname, presence: true
   mount_uploader :avatar, AvatarUploader
 
 end

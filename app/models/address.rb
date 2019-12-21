@@ -1,6 +1,8 @@
 class Address < ApplicationRecord
   belongs_to :event
 
+  validates :latitude, presence: true
+  validates :longitude, presence: true
   validates :latitude, :numericality => { :greater_than => 41.3291265 }
 
   def geocode

@@ -56,7 +56,7 @@ class EventsController < ApplicationController
         new_update_params = update_event_params
         new_update_params[:address_attributes].merge!(latitude: @address.latitude, longitude: @address.longitude)
         if @event.valid? && @event.update(new_update_params)
-          redirect_to root_path
+          redirect_to event_path(@event)
         else
           redirect_to edit_event_path(@event), alert: '上書きできませんでした'
         end
