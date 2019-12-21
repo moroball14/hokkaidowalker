@@ -1,5 +1,3 @@
-$f-pink-color: #00695c;
-
 .maps {
   height: calc(100vh - 120px);
   width: 100vw;
@@ -29,9 +27,9 @@ $f-pink-color: #00695c;
   line-height: 60px;
   text-decoration: none;
   text-align: center;
-  background-color: $f-pink-color;
+  background-color: $f-green-color;
   border-radius: 35px;
   &:hover {
-    background-color: $f-pink-color;
+    background-color: $f-green-color;
   }
 }

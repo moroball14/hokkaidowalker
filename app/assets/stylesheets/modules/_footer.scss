@@ -1,4 +1,4 @@
-$f-pink-color: #4db6ac;
+$f-green-color: #4db6ac;
 
 footer {
   width: 100%;
@@ -19,7 +19,7 @@ footer {
     border-right: 2px solid #eeeeee;
   }
   &:hover i {
-    color: $f-pink-color;
+    color: $f-green-color;
     transition: 0.5s;
   }
   &:nth-child(3) {

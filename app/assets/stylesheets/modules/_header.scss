@@ -1,5 +1,3 @@
-$f-pink-color: #00695c;
-
 .header {
   height: 60px;
   text-align: center;
@@ -12,7 +10,7 @@ $f-pink-color: #00695c;
     font-size: 40px;
     line-height: 60px;
     font-weight: bold;
-    text-shadow: 3px 3px 0 $f-pink-color;
+    text-shadow: 3px 3px 0 $f-green-color;
     -webkit-text-stroke: 2px #888;
     text-decoration: none;
   }
@@ -40,6 +38,6 @@ $f-pink-color: #00695c;
 ul.dropdown-content {
   min-width: 140px;
   & li a {
-    color: $f-pink-color;
+    color: $f-green-color;
   }
 }
