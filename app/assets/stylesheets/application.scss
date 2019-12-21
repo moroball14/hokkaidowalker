@@ -34,9 +34,15 @@
  // favorite
  @import "./modules/favorites";
 
+ // modal
+ @import "./modules/modal";
+
  // events
  @import "./modules/events/index";
  @import "./modules/events/new";
+ @import "./modules/events/show";
+ @import "./modules/events/ranking";
 
  // users
  @import "./modules/users/show";
+ @import "./modules/users/login";
