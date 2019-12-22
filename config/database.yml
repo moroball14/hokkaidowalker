@@ -16,6 +16,7 @@ default: &default
   host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
   username: <%= ENV.fetch("DB_USERNAME") %>
   password: <%= ENV.fetch("DB_PASSWORD") %>
+  socket: /tmp/mysql.sock # この一行は https://qiita.com/t-izaki/items/c6ef3239176f9c6697f2の記事を参考にした
   # host: db
 
 development:
