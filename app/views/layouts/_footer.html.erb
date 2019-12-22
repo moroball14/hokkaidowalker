@@ -1,20 +1,20 @@
 <footer>
   <ul>
-    <li class="footer-list js-modal-open1">
-      <%= link_to "#", class: "now-event" do %>
+    <li class="footer-list">
+      <div class="js-modal-open1">
         <%= icon 'fas', 'location-arrow', class: "now-event__icon" %>
+      </div>
         <%# 場所検索 %>
-        <div class="modal js-modal1">
-          <div class="modal__bg js-modal-close1"></div>
-          <div class="modal__content2">
-            <h3>場所で探す</h3>
-            <!-- 地名入力用のinputを追加 -->
-            <input id="address" type="textbox" placeholder="札幌" class="modal__input">
-            <!-- buttonをクリックしたらcodeAddressを実行 -->
-            <input type="button" value="検索" onclick="codeAddress()" class="btn btn-default modal__submit">
-          </div>
+      <div class="modal js-modal1">
+        <div class="modal__bg js-modal-close1"></div>
+        <div class="modal__content2">
+          <h3>場所で探す</h3>
+          <!-- 地名入力用のinputを追加 -->
+          <input id="address" type="textbox" placeholder="札幌" class="modal__input">
+          <!-- buttonをクリックしたらcodeAddressを実行 -->
+          <input type="button" value="検索" onclick="codeAddress()" class="btn btn-default modal__submit">
         </div>
-      <% end %>
+      </div>
     </li>
     <li class="footer-list footer-list__center">
       <div class="js-modal-open">
