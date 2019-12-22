@@ -12,4 +12,11 @@ class Event < ApplicationRecord
   validates :end_on, presence: true
   validates :category_id, presence: true
 
+  # validate :pretend_ago
+
+  # def pretend_ago
+  #     errors.add(:end_on, '終了日は開始日以降にしてください') if end_on.nil? || end_on < start
+  # end
+
+
 end
