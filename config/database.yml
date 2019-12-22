@@ -16,7 +16,7 @@ default: &default
   host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
   username: <%= ENV.fetch("DB_USERNAME") %>
   password: <%= ENV.fetch("DB_PASSWORD") %>
-  host: <%= ENV.fetch("DB_HOST") %>
+  # host: db
 
 development:
   <<: *default

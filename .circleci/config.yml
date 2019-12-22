@@ -9,7 +9,6 @@ jobs:
           DB_HOST: 127.0.0.1
           DB_USERNAME: 'root'
           DB_PASSWORD: 'password'
-	  DB_HOST: 'db'
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
