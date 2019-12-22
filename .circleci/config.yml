@@ -1,30 +1,26 @@
 version: 2
 jobs:
   build:
-    # 対象のブランチ
-    # master に限定
-    branches:
-      only:
-        - master
-　　　　# 使用する Docker イメージ
-　　　　# Rails 用の Ruby イメージ
-　　　　# MySQL 用のイメージ
     docker:
-       - image: circleci/ruby:2.5.3-node-browsers
-         # MySQL に接続するための環境変数を設定
-         # テスト用なのでデフォルトのまま（rootユーザー）
-         environment:
-           RAILS_ENV: test
-           DB_USERNAME: 'root'
-           DB_PASSWORD: 'password'
+      # specify the version you desire here
+      - image: circleci/ruby:2.5.3-node-browsers
+        environment:
+          RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+          DB_USERNAME: 'root'
+          DB_PASSWORD: 'password'
 
-       - image: circleci/mysql:5.6
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      - image: circleci/mysql:5.6
 
-    working_directory: ~/repo
+    working_directory: ~/app_name
 
     steps:
       - checkout
 
+      # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "Gemfile.lock" }}
@@ -41,13 +37,15 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      # テストデータベースの設定
-      - run: rm ./config/database.yml
-      - run: mv ./config/database.yml.ci ./config/database.yml
-      - run: bundle exec rake db:create RAILS_ENV=test
-      - run: bundle exec rake db:migrate RAILS_ENV=test
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
-      # テスト実行
+      # Database setup
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
+
+      # run tests!
       - run:
           name: run tests
           command: |
@@ -55,9 +53,12 @@ jobs:
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
 
             bundle exec rspec --format progress \
+                            --format RspecJunitFormatter \
                             --out /tmp/test-results/rspec.xml \
+                            --format progress \
                             $TEST_FILES
 
+      # collect reports
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
