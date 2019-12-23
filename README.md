@@ -1,4 +1,5 @@
 # 北海道Walker
+※12/23現在未デプロイです。もうしばらくお待ちください。
 
 ## アプリ概要
 **開催中のイベントを地図から探せるアプリ**です。（本番環境ではイベント投稿数が少ないため当日以降へ変更しています）
@@ -7,33 +8,28 @@
 北海道札幌市に住んでいた時、素敵なイベントと数多く出会いました。日常にイベントを取り入れることで毎日は豊かになると感じましたが、イベントを探すと遠かったり開催期間ではなかったりします。今開催されているイベントを地図で一目でわかることができれば、イベント参加がより日常になり、より豊かな生活を送れると思い、作成しました。
 
 ## アプリイメージ
-![Imgur](https://i.imgur.com/667tfv2.png)
+![トップページ](https://i.imgur.com/UkKZoSq.png)
+![条件検索機能](https://i.imgur.com/667tfv2.png)
+![地域検索機能]](https://i.imgur.com/2E6nI4A.png)
 
+## 使用技術
+### フロントサイド
+- jQuery 1.12.4
+- GoogleMaps API
+  - Maps JavaScript API
+  - Geolocation API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### サーバーサイド
+- Ruby 2.5.3
+- Rails 5.2.4
+- Rspec
 
-Things you may want to cover:
+### インフラストラクチャー
+- Docker 19.03.5
+- docker-compose 3
+- Circle CI 2
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
+<!-- 
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -63,4 +59,4 @@ Things you may want to cover:
 - has_many :likes
 - has_many :users, through :likes
 - belongs_to :user
-- has_one :address
+- has_one :address -->
