@@ -7,7 +7,7 @@
 北海道札幌市に住んでいた時、素敵なイベントと数多く出会いました。日常にイベントを取り入れることで毎日は豊かになると感じましたが、イベントを探すと遠かったり開催期間ではなかったりします。今開催されているイベントを地図で一目でわかることができれば、イベント参加がより日常になり、より豊かな生活を送れると思い、作成しました。
 
 ## アプリイメージ
-![トップ画面](https://drive.google.com/drive/u/0/folders/1080RXNA_f8dE-49QMwcNQa4tNCL7SHkd)
+![トップ画面](https://imgur.com/UkKZoSq)
 
 
 This README would normally document whatever steps are necessary to get the
