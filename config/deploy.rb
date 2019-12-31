@@ -27,8 +27,8 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
-# .env用のシンボリックリンクを追加
-set :linked_files, %w{ .env }
+# xdcrets.yml用のシンボリックリンクを追加
+set :linked_files, %w{ config/secrets.yml }
 
 # 元々記述されていた after 「'deploy:publishing', 'deploy:restart'」以下を削除して、次のように書き換え
 
@@ -38,13 +38,13 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 
-  desc 'upload .env'
+  desc 'upload secrets.yml'
   task :upload do
     on roles(:app) do |host|
       if test "[ ! -d #{shared_path}/config ]"
         execute "mkdir -p #{shared_path}/config"
       end
-      upload!('.env', "#{shared_path}/.env")
+      upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
     end
   end
   before :starting, 'deploy:upload'
