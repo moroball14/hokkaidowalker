@@ -10,34 +10,36 @@
 
     <%= render 'favorites/favorite', event: @event %>
 
-    <div class="detail-list">
-      <div class="detail-list__head">イベント名</div>
-      <div class="detail-list__body"><%= @event.name %><%= link_to "イメージを見る（google画像検索へ遷移します）", "https://www.google.co.jp/search?q=#{@event.name}&sxsrf=ACYBGNRpt-p1nXhkCIn-YzO4GqmNOenIGA:1572737338526&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjx3IyT18zlAhXC7WEKHWriBaIQ_AUIFCgD&biw=1440&bih=789", target: :_blank, class: "link_to_image" %></div>
-    </div>
-
-    <div class="detail-list">
-      <div class="detail-list__head">場所</div>
-      <div class="detail-list__body"><%= @event.address.place %> <%= @event.address.place_building %></div>
-    </div>
-
-    <div class="detail-list">
-      <div class="detail-list__head">日時</div>
-      <div class="detail-list__body">
-        <%= @event.start.strftime("%Y年%-m月%-d日") %>
-        <% unless @event.start == @event.end_on %>
-          <span>  〜  <%= @event.end_on.strftime("%Y年%-m月%-d日") %></span>
-        <% end %>
+    <div class="detail-wrapper">
+      <div class="detail-list">
+        <div class="detail-list__head">イベント名</div>
+        <div class="detail-list__body"><%= @event.name %><%= link_to "イメージを見る（google画像検索へ遷移します）", "https://www.google.co.jp/search?q=#{@event.name}&sxsrf=ACYBGNRpt-p1nXhkCIn-YzO4GqmNOenIGA:1572737338526&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjx3IyT18zlAhXC7WEKHWriBaIQ_AUIFCgD&biw=1440&bih=789", target: :_blank, class: "link_to_image" %></div>
       </div>
-    </div>
 
-    <div class="detail-list">
-      <div class="detail-list__head">url</div>
-      <div class="detail-list__body"><%= link_to "#{ @event.url }".truncate(60) , "#{ @event.url }", target: :_blank %></div>
-    </div>
+      <div class="detail-list">
+        <div class="detail-list__head">場所</div>
+        <div class="detail-list__body"><%= @event.address.place %> <%= @event.address.place_building %></div>
+      </div>
 
-    <div class="detail-list">
-      <div class="detail-list__head">地図</div>
-      <div class="detail-list__body detail-list__map"><div id='map'></div></div>
+      <div class="detail-list">
+        <div class="detail-list__head">日時</div>
+        <div class="detail-list__body">
+          <%= @event.start.strftime("%Y年%-m月%-d日") %>
+          <% unless @event.start == @event.end_on %>
+            <span>  〜  <%= @event.end_on.strftime("%Y年%-m月%-d日") %></span>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="detail-list">
+        <div class="detail-list__head">url</div>
+        <div class="detail-list__body"><%= link_to "#{ @event.url }".truncate(60) , "#{ @event.url }", target: :_blank %></div>
+      </div>
+
+      <div class="detail-list">
+        <div class="detail-list__head">地図</div>
+        <div class="detail-list__body detail-list__map"><div id='map'></div></div>
+      </div>
     </div>
 
   </div>
