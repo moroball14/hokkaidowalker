@@ -1,6 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  
+  GA.tracker = 'UA-155283344-1'
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -92,7 +93,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  GA.tracker = 'UA-155283344-1'
 
 end

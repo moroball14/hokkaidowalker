@@ -22,7 +22,12 @@
 
     <div class="detail-list">
       <div class="detail-list__head">日時</div>
-      <div class="detail-list__body"><%= @event.start.strftime("%Y年%-m月%-d日") %>  〜  <%= @event.end_on.strftime("%Y年%-m月%-d日") %></div>
+      <div class="detail-list__body">
+        <%= @event.start.strftime("%Y年%-m月%-d日") %>
+        <% unless event.start == event.end_on %>
+          〜  <%= @event.end_on.strftime("%Y年%-m月%-d日") %>
+        <% end %>
+      </div>
     </div>
 
     <div class="detail-list">
