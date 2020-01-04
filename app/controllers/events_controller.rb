@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     if params[:q].present?
       @search.result.includes(:address)
     else
-      Event.includes(:address).where('end_on >= ?', Date.today)
+      Event.includes(:address).all
     end
   end
 
