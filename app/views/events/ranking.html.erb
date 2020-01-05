@@ -4,39 +4,41 @@
     <div class="ranking-wrapper">
       <ul>
         <% @all_ranks.each.with_index(1) do |event, i| %>
-          <li class="col s12 m7">
-            <div class="card horizontal">
-              <div class="card-image">
-                <div class="rank">
-                  <div class="rank__num">
-                    第<%= i %>位
+          <%= link_to event_path(event.id), class: "ranking-wrapper__link" do%>
+            <li class="col s12 m7">
+              <div class="card horizontal">
+                <div class="card-image">
+                  <div class="rank">
+                    <div class="rank__num">
+                      第<%= i %>位
+                    </div>
+                    <div class="rank__num__people">
+                      <span class="rank__num__person"><%= event.favorites.count %>人</span>が気になっています
+                    </div>
                   </div>
-                  <div class="rank__num__people">
-                    <span class="rank__num__person"><%= event.favorites.count %>人</span>が気になっています
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <p class="rank__event-name"><%= event.name  %></p>
+                  </div>
+                  <div class="card-action">
+                    <p>
+                      <span class="rank__details">
+                        <%= icon 'fas', 'location-arrow' %><%= event.address.place %> <%= event.address.place_building %>
+                      </span>
+                      <span class="rank__details">
+                        <%= icon 'fas', 'calendar-alt' %>
+                        <%= event.start.strftime("%Y年%-m月%-d日") %>
+                        <% unless event.start == event.end_on %>
+                          〜  <%= event.end_on.strftime("%Y年%-m月%-d日") %>
+                        <% end %>
+                      </span>
+                    </p>
                   </div>
                 </div>
               </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <p><%= link_to "#{event.name}", event_path(event.id), class: "interested-event__list--details-event-name" %></p>
-                </div>
-                <div class="card-action">
-                  <p>
-                    <span class="rank__details">
-                      <%= icon 'fas', 'location-arrow' %><%= event.address.place %> <%= event.address.place_building %>
-                    </span>
-                    <span class="rank__details">
-                      <%= icon 'fas', 'calendar-alt' %>
-                      <%= event.start.strftime("%Y年%-m月%-d日") %>
-                      <% unless event.start == event.end_on %>
-                        〜  <%= event.end_on.strftime("%Y年%-m月%-d日") %>
-                      <% end %>
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </li>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>

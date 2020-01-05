@@ -1,44 +1,49 @@
 .ranking-wrapper {
   max-height: 600px;
   overflow: scroll;
+  &__link:first-child {
+    li .card.horizontal .card-image {
+      background: radial-gradient(#fffadd, #fecb00);
+    }
+  }
+  &__link:nth-child(2) {
+    li .card.horizontal .card-image {
+      background: radial-gradient(#E8E8E8,#9E9E9E);
+    }
+  }
+  &__link:nth-child(3) {
+    li .card.horizontal .card-image {
+      background: radial-gradient(#C9AE5D,#C47022);
+    }
+  }
+  &__link:hover .rank__event-name{
+    color: $f-green-color;
+    transition: 0.3s;
+  }
 }
 
 .rank {
   width: 200px;
   height: 100%;
   &__num {
+    color: black;
     height: 80px;
     line-height: 80px;
     text-align: center;
     font-size: 45px;
     &__people {
+      color: black;
       text-align: center;
     }
     &__person {
       color: red;
     }
   }
+  &__event-name {
+    color: black;
+  }
   &__details {
     color: #aaa;
     margin-right: 10px;
   }
 }
-
-li:first-child {
-  .card.horizontal .card-image {
-  background: radial-gradient(#fffadd, #fecb00);
-  }
-}
-
-li:nth-child(2) {
-  .card.horizontal .card-image {
-    background: radial-gradient(#E8E8E8,#9E9E9E);
-  }
-}
-
-li:nth-child(3) {
-  .card.horizontal .card-image {
-    background: radial-gradient(#C9AE5D,#C47022);
-  }
-}
-
