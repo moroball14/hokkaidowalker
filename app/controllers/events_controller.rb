@@ -26,7 +26,7 @@ class EventsController < ApplicationController
     @address = Address.new(event_params[:address_attributes])
     @address.geocode
     unless @address[:latitude] == nil
-      if (@address[:latitude] > 41.3291265 && (@address[:longitude] < 140.6749102 || @address[:longitude] > 141.5812776)) || (@address[:latitude] > 41.6583837 && (@address[:longitude] > 140.6749102 && @address[:longitude] < 141.5812776))
+      if ((@address[:latitude] > 41.3 && @address[:latitude] < 45.7) && ((@address[:longitude] < 140.7 && @address[:longitude] > 139.0) || (@address[:longitude] > 141.6 && @address[:longitude] < 149.2))) || ((@address[:latitude] > 41.6 && @address[:latitude] < 45.7) && (@address[:longitude] > 140.7 && @address[:longitude] < 141.6))
           new_params = event_params
           new_params[:address_attributes].merge!(latitude: @address.latitude, longitude: @address.longitude)
           @event = Event.new(new_params)
