@@ -10,17 +10,18 @@
 <script type="text/javascript">
   var currentInfoWindow = null;
 
-  function firstSet() {
-    geocoder = new google.maps.Geocoder()
-  }
-
   function someEvents(map) {
     <% @events.each do |event| %>
       var place = {lat: <%= event.address.latitude %>, lng: <%= event.address.longitude %>}
       var transitLayer = new google.maps.TransitLayer();
       transitLayer.setMap(map);
 
-      var contentString = 'イベント名：<a href="/events/<%= event.id %>"><%= event.name %></a><br>期間：<%= event.start.strftime("%Y年%-m月%-d日") %>〜<%= event.end_on.strftime("%Y年%-m月%-d日") %>';
+      var contentString =
+      <% unless event.start == event.end_on %>
+        'イベント名：<a href="/events/<%= event.id %>"><%= event.name %></a><br>期間：<%= event.start.strftime("%Y年%-m月%-d日") %>〜<%= event.end_on.strftime("%Y年%-m月%-d日") %>';
+      <% else %>
+        'イベント名：<a href="/events/<%= event.id %>"><%= event.name %></a><br>期間：<%= event.start.strftime("%Y年%-m月%-d日") %>';
+      <% end %>
       var infowindow = new google.maps.InfoWindow({ //吹き出し
         content: contentString // マーカーの情報
       });
@@ -36,7 +37,6 @@
   }
 
   function initMap() {
-    firstSet();
     var test = {lat: 43.068661, lng: 141.350755};  // 変数testに札幌駅の緯度経度を代入
     var map = new google.maps.Map(document.getElementById('map'), { // id=mapに地図を埋め込む
       zoom: 14,  // zoomを15
@@ -46,7 +46,7 @@
   }
 
   function codeAddress(){
-    firstSet();
+    var geocoder = new google.maps.Geocoder()
     var map = new google.maps.Map(document.getElementById('map'), { // id=mapに地図を埋め込む
       zoom: 14
     });
